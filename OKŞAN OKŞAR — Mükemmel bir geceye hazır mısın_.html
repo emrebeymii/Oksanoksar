@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OKŞAN OKŞAR — Mükemmel bir geceye hazır mısın?</title>
+<meta name="color-scheme" content="dark">
+<style>
+:root{--bg:#0a0a0b;--bg2:#131316;--card:#17171b;--wine:#6d1226;--wine2:#8f1d38;--gold:#d8b878;--gold2:#f0dcab;--ivory:#f6efe3;--mute:#a49d90;--line:rgba(216,184,120,.28);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:"Helvetica Neue",Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:96px 0}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.sec-h{font-size:clamp(2rem,5vw,3.2rem);margin:.4em 0 .3em;line-height:1.1}
+.sec-p{color:var(--mute);max-width:560px;margin:0 0 40px}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border:0;margin:0;opacity:.5}
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(10,10,11,.55);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:Georgia,serif;letter-spacing:.3em;font-size:.95rem;color:var(--gold2)}
+.logo b{color:var(--gold);font-weight:500}
+.links{display:flex;gap:30px;align-items:center}
+.links a.l{font-size:.85rem;color:var(--mute);position:relative;padding:6px 0;transition:color .3s}
+.links a.l::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s}
+.links a.l:hover,.links a.l.on{color:var(--ivory)}
+.links a.l:hover::after,.links a.l.on::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 28px;font-size:.88rem;letter-spacing:.06em;border:1px solid var(--gold);transition:transform .2s,box-shadow .3s,background .3s,color .3s;position:relative;overflow:hidden}
+.btn:active{transform:scale(.96)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 60%,#b99650);color:#1a1409;font-weight:600;border-color:transparent}
+.btn.gold:hover{box-shadow:0 8px 30px rgba(216,184,120,.35);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--gold2)}
+.btn.ghost:hover{background:rgba(216,184,120,.1);transform:translateY(-2px)}
+.btn.sm{padding:9px 20px;font-size:.8rem}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:var(--gold2);position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+@media(max-width:860px){
+.burger{display:flex}
+.links{position:fixed;top:calc(68px + env(safe-area-inset-top,0px));left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:12px 22px 26px;background:rgba(10,10,11,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.35s}
+.links.open{transform:none;opacity:1;pointer-events:auto}
+.links a.l{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+.links .btn{margin-top:18px}
+section{padding:72px 0}
+}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 80px;overflow:hidden;background:
+radial-gradient(ellipse at 75% 20%,rgba(143,29,56,.45),transparent 55%),
+radial-gradient(ellipse at 15% 85%,rgba(216,184,120,.12),transparent 50%),
+linear-gradient(180deg,#0a0a0b,#111114)}
+.skyline{position:absolute;left:0;right:0;bottom:0;height:46%;opacity:.9}
+.bokeh{position:absolute;inset:0;pointer-events:none}
+.bokeh i{position:absolute;border-radius:50%;filter:blur(2px);animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-26px);opacity:.8}}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.7rem,8.4vw,6.4rem);line-height:1.02;margin:.3em 0 .35em;max-width:11ch}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p.lead{font-size:clamp(1rem,2vw,1.2rem);color:var(--mute);max-width:520px;margin:0 0 36px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.tag-rot{margin-top:56px;font-size:.85rem;color:var(--gold);letter-spacing:.14em;min-height:1.6em;transition:opacity .5s}
+/* profile controls */
+.ctrl{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:34px}
+.search{flex:1 1 260px;position:relative}
+.search input{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:14px 20px 14px 46px;color:var(--ivory);font:inherit;font-size:.95rem}
+.search svg{position:absolute;left:17px;top:50%;transform:translateY(-50%);width:16px;opacity:.7}
+.search input::placeholder{color:#756f64}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:.82rem;color:var(--mute);transition:.3s}
+.chip:hover{color:var(--ivory);border-color:var(--gold)}
+.chip[aria-pressed=true]{background:var(--wine);color:var(--gold2);border-color:var(--wine2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.card{background:linear-gradient(180deg,var(--card),#111113);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;text-align:left;padding:0;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s;display:block;width:100%}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(0,0,0,.55),0 0 0 1px var(--gold);}
+.av{aspect-ratio:4/4.4;position:relative;overflow:hidden}
+.av svg{width:100%;height:100%;display:block;transition:transform .8s}
+.card:hover .av svg{transform:scale(1.06)}
+.badge{position:absolute;top:14px;left:14px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;background:rgba(10,10,11,.7);backdrop-filter:blur(8px);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--gold2)}
+.ai{position:absolute;bottom:12px;right:12px;font-size:.62rem;color:var(--mute);background:rgba(0,0,0,.55);padding:3px 9px;border-radius:999px}
+.cb{padding:18px 20px 22px}
+.cb h3{margin:0;font-size:1.3rem}
+.cb .role{color:var(--gold);font-size:.78rem;letter-spacing:.1em;margin:2px 0 8px}
+.cb p{margin:0;color:var(--mute);font-size:.88rem}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:50px 0}
+/* experiences */
+.xgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.xc{border:1px solid var(--line);border-radius:20px;padding:32px 28px;background:linear-gradient(160deg,rgba(109,18,38,.35),rgba(19,19,22,.9));position:relative;overflow:hidden;transition:transform .4s,border-color .4s}
+.xc:hover{transform:translateY(-6px);border-color:var(--gold)}
+.xc .n{font-family:Georgia,serif;font-size:3.4rem;color:rgba(216,184,120,.22);line-height:1}
+.xc h3{font-size:1.5rem;margin:10px 0 8px}
+.xc p{color:var(--mute);margin:0 0 18px;font-size:.92rem}
+.xc a{color:var(--gold);font-size:.82rem;letter-spacing:.1em;border-bottom:1px solid var(--line);padding-bottom:2px}
+/* vip */
+.vip{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;align-items:stretch}
+.vc{border-radius:22px;padding:34px 28px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
+.vc:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.vc.gold{border-color:var(--gold);background:linear-gradient(160deg,#2a1d0a,#17171b 60%)}
+.vc.dia{background:linear-gradient(160deg,#3b0f1c,#17171b 65%);border-color:var(--wine2)}
+.vc h3{font-size:1.7rem;margin:6px 0}
+.vc .pr{color:var(--gold2);font-family:Georgia,serif;font-size:1.1rem;margin-bottom:18px}
+.vc ul{list-style:none;padding:0;margin:0 0 26px;flex:1}
+.vc li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);color:var(--mute);font-size:.9rem;display:flex;gap:10px}
+.vc li::before{content:"";width:5px;height:5px;margin-top:10px;border-radius:50%;background:var(--gold);flex:none}
+.note{margin-top:22px;font-size:.8rem;color:#847d70}
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.tc{border-left:1px solid var(--gold);padding:6px 0 6px 24px}
+.tc q{font-family:Georgia,serif;font-size:1.15rem;line-height:1.5;display:block;margin-bottom:14px;quotes:"“" "”"}
+.tc small{color:var(--gold);letter-spacing:.1em;font-size:.76rem}
+.tc em{display:block;color:#7c766a;font-size:.72rem;margin-top:3px}
+/* story */
+.story{background:radial-gradient(ellipse at 50% 0,rgba(109,18,38,.35),transparent 60%),var(--bg2);text-align:center}
+.story blockquote{margin:0 auto;max-width:760px;font-family:Georgia,serif;font-size:clamp(1.3rem,3vw,2rem);line-height:1.5}
+.story p{color:var(--mute);max-width:620px;margin:28px auto 0}
+/* contact */
+.cform{max-width:560px;display:grid;gap:14px}
+.cform input,.cform textarea{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 18px;color:var(--ivory);font:inherit}
+.cform textarea{min-height:110px;resize:vertical}
+.cform .btn{justify-self:start}
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 calc(34px + env(safe-area-inset-bottom,0px));background:#070708}
+.fgrid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+.fgrid nav{display:flex;gap:22px;flex-wrap:wrap}
+.fgrid nav a{color:var(--mute);font-size:.88rem}.fgrid nav a:hover{color:var(--gold2)}
+.disc{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);font-size:.78rem;color:#847d70;text-align:center}
+.disc strong{color:var(--gold);font-weight:500}
+/* modal + toast */
+.ov{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.ov.show{opacity:1;pointer-events:auto}
+.modal{width:100%;max-width:560px;max-height:88vh;overflow:auto;background:linear-gradient(180deg,#1b1b20,#121215);border:1px solid var(--gold);border-radius:24px;transform:translateY(24px) scale(.97);transition:transform .4s cubic-bezier(.2,.8,.2,1);position:relative}
+.ov.show .modal{transform:none}
+.modal .av{aspect-ratio:16/9}
+.mb{padding:26px 28px 30px}
+.mb h3{font-size:1.8rem;margin:0}
+.mb .role{color:var(--gold);letter-spacing:.12em;font-size:.8rem;margin:2px 0 14px}
+.mb p{color:var(--mute);margin:0 0 16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 24px}
+.stats div{border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stats b{display:block;font-family:Georgia,serif;color:var(--gold2);font-size:1.2rem;font-weight:500}
+.stats span{font-size:.68rem;color:var(--mute);letter-spacing:.08em}
+.x{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(10,10,11,.7);border:1px solid var(--line);font-size:1.2rem;line-height:1}
+.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;z-index:200;background:var(--wine);color:var(--gold2);border:1px solid var(--gold);padding:14px 24px;border-radius:999px;font-size:.88rem;transition:.45s;max-width:90vw;text-align:center;pointer-events:none}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="#ana" class="logo" aria-label="OKŞAN OKŞAR ana sayfa">OKŞAN <b>OKŞAR</b></a>
+  <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="links"><span></span></button>
+  <nav class="links" id="links" aria-label="Ana menü">
+   <a class="l on" href="#ana">Ana Sayfa</a>
+   <a class="l" href="#profiller">Profil</a>
+   <a class="l" href="#deneyimler">Deneyimler</a>
+   <a class="l" href="#hakkimizda">Hakkımızda</a>
+   <a class="l" href="#iletisim">İletişim</a>
+   <a class="btn gold sm" href="#profiller">Keşfet</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="ana">
+ <div class="bokeh" id="bokeh" aria-hidden="true"></div>
+ <svg class="skyline" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1013"/><stop offset="1" stop-color="#0a0a0b"/></linearGradient></defs>
+  <g fill="url(#sk)" stroke="rgba(216,184,120,.25)" stroke-width="1">
+   <rect x="0" y="150" width="70" height="150"/><rect x="80" y="90" width="55" height="210"/><rect x="145" y="170" width="80" height="130"/><rect x="235" y="60" width="50" height="240"/><rect x="295" y="130" width="90" height="170"/><rect x="395" y="100" width="60" height="200"/><rect x="465" y="180" width="85" height="120"/><rect x="560" y="40" width="48" height="260"/><rect x="618" y="120" width="80" height="180"/><rect x="708" y="80" width="62" height="220"/><rect x="780" y="160" width="90" height="140"/><rect x="880" y="110" width="55" height="190"/><rect x="945" y="50" width="52" height="250"/><rect x="1007" y="140" width="85" height="160"/><rect x="1102" y="95" width="98" height="205"/>
+  </g>
+  <g fill="#f0dcab" opacity=".7" id="win"></g>
+ </svg>
+ <div class="wrap">
+  <div class="eyebrow">Şehrin Gece Rehberi</div>
+  <h1>Mükemmel bir geceye <em>hazır mısın?</em></h1>
+  <p class="lead">Şehrin ritmini hisset. Kendine özel bir deneyim keşfet. Geceni sıradanlıktan çıkar.</p>
+  <div class="cta">
+   <a class="btn gold" href="#profiller">Keşfet</a>
+   <a class="btn ghost" href="#deneyimler">Deneyimleri İncele</a>
+  </div>
+  <div class="tag-rot" id="rot" aria-live="off"></div>
+ </div>
+</section>
+<hr class="rule">
+
+<section id="profiller">
+ <div class="wrap">
+  <div class="eyebrow rv">Öne çıkan profil</div>
+  <h2 class="sec-h rv">Tek isim. Sonsuz gece.</h2>
+  <p class="sec-p rv">Okşan Okşar tamamen kurgusal bir karakterdir; gerçek bir kişiyi temsil etmez. Görseller temsili illüstrasyondur. Aşağıda onun hayali gece dosyaları var.</p>
+  <div class="ctrl rv">
+   <label class="search"><span class="sr" style="position:absolute;left:-9999px">Profil ara</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#d8b878" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input id="q" type="search" placeholder="Gece dosyalarında ara…" autocomplete="off"></label>
+   <div class="chips" id="chips" role="group" aria-label="Kategori filtresi"></div>
+  </div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+ </div>
+</section>
+<hr class="rule">
+
+<section id="deneyimler">
+ <div class="wrap">
+  <div class="eyebrow rv">Özel deneyimler</div>
+  <h2 class="sec-h rv">Sıradan gecelere veda et</h2>
+  <p class="sec-p rv">Her biri titizlikle kurgulanmış, tamamen hayali akşam programları.</p>
+  <div class="xgrid" id="xgrid"></div>
+ </div>
+</section>
+
+<section id="vip" style="background:var(--bg2)">
+ <div class="wrap">
+  <div class="eyebrow rv">VIP ayrıcalıkları</div>
+  <h2 class="sec-h rv">Üyelik, ama sadece havada</h2>
+  <p class="sec-p rv">Üç kademe, sıfır gerçeklik. Hiçbir ödeme alınmaz, hiçbir bilgi toplanmaz.</p>
+  <div class="vip" id="vip"></div>
+  <p class="note rv">* Üyelikler tamamen kurgusaldır. Ödeme, rezervasyon veya kişisel veri toplama işlevi bulunmaz.</p>
+ </div>
+</section>
+
+<section id="referanslar">
+ <div class="wrap">
+  <div class="eyebrow rv">Referanslar</div>
+  <h2 class="sec-h rv">Memnun (uydurma) müşteriler</h2>
+  <p class="sec-p rv">Aşağıdaki yorumların tamamı kurgudur. Bu kişiler yoktur.</p>
+  <div class="tgrid" id="tgrid"></div>
+ </div>
+</section>
+
+<section class="story" id="hakkimizda">
+ <div class="wrap">
+  <div class="eyebrow rv">Marka hikâyesi</div>
+  <blockquote class="rv" style="margin-top:18px">“Her şey bir salı akşamı, yanlış binaya girmekle başladı. Sonrası, iyi planlanmış bir tesadüftü.”</blockquote>
+  <p class="rv">OKŞAN OKŞAR, gecenin ciddiye alınması gerektiğine inanan ama kendini hiç ciddiye almayan bir parodi markadır. Lüksü seviyoruz, abartıyı daha çok. Vaat ettiğimiz tek şey: iyi bir ışık ve kusursuz bir giriş cümlesi.</p>
+ </div>
+</section>
+<hr class="rule">
+
+<section id="iletisim">
+ <div class="wrap">
+  <div class="eyebrow rv">İletişim</div>
+  <h2 class="sec-h rv">Gece senin, hikâye senin</h2>
+  <p class="sec-p rv">Bu form sahte; hiçbir veri gönderilmez veya saklanmaz. Bas, animasyonu gör, devam et.</p>
+  <form class="cform rv" id="cform" novalidate>
+   <input type="text" aria-label="Takma ad" placeholder="Takma adın (gerçek isim yazma)">
+   <textarea aria-label="Mesaj" placeholder="Hayali mesajın…"></textarea>
+   <button class="btn gold" type="submit">Mesajı (Hayal Et) Gönder</button>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div><div class="logo">OKŞAN <b>OKŞAR</b></div><p style="color:var(--mute);font-size:.86rem;margin:10px 0 0;max-width:280px">Unutulmaz anlar, ayrıcalıklı deneyimler.</p></div>
+   <nav aria-label="Alt menü"><a href="#ana">Ana Sayfa</a><a href="#profiller">Profiller</a><a href="#deneyimler">Deneyimler</a><a href="#hakkimizda">Hakkımızda</a><a href="#iletisim">İletişim</a></nav>
+  </div>
+  <div class="disc"><strong>Parodi projesidir, gerçek bir hizmet sunmaz.</strong><br>Tüm karakterler, yorumlar ve üyelikler kurgusaldır. © 2026 OKŞAN OKŞAR (parodi)</div>
+ </div>
+</footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
+const P=[
+{id:1,n:"Şehir Turu Gecesi",r:"Okşan Okşar · Gece Rehberi",c:"Gece Gezisi",h:["#26364a","#080b10"],b:"Köprüleri isimleriyle, simitçileri ruh hâlleriyle tanır.",l:"Tur boyunca tek cümleyle sessizliği bozar: “Bu manzara bana bir şey söylüyor.” Ne söylediği hâlâ sır.",s:["31","Köprü bakışı","5","Dilsiz simit","∞","Anekdot"]},
+{id:2,n:"Kadife İp Akşamı",r:"Okşan Okşar · VIP Küratör",c:"VIP Akşam",h:["#8a6a2c","#17110a"],b:"Masa düzenini astronomi hassasiyetiyle planlar. Peçeteleri katlarken konuşmaz.",l:"Bir keresinde şampanya kadehini ışıkla hizaladı; kimse fark etmedi, o hep biliyor.",s:["220","Masa","7","Peçete modeli","100%","Ciddiyet"]},
+{id:3,n:"Işık Provası",r:"Okşan Okşar · Sahne Sunucusu",c:"Sahne",h:["#7a1830","#150a0f"],b:"Mikrofonu tutuş şekliyle salonu sessizleştirir. Sonra kendisi susmaz.",l:"Dramatik duraksamaları Guinness’e aday gösterilmedi, çünkü başvuru formunu dramatik biçimde bekletti.",s:["9","Sessizlik rekoru","4","Işık değişimi","1","Mikrofon"]},
+{id:4,n:"Yanlış Sokak Seferi",r:"Okşan Okşar · Gece Rehberi",c:"Gece Gezisi",h:["#3b2a52","#0d0a14"],b:"Üç kez yanlış sokağa girdi, üçünde de daha güzel bir yere çıktı.",l:"Pusulası yok, özgüveni var. Haritayı ters tutarken bile rotanın bilerek seçildiğini söyler.",s:["14","Yıl","12","Yanlış sokak","98%","Mizah"]},
+{id:5,n:"Karşılama Töreni",r:"Okşan Okşar · VIP Karşılama Şefi",c:"VIP Akşam",h:["#5a4a1e","#100d07"],b:"Kapıyı açış biçimi bir sanat dalı sayılmalı. Kendisi zaten sayıyor.",l:"Beş yıldır aynı ceketle, her seferinde farklı bir selam.",s:["5","Ceket","1700","Selam","0","Acele"]},
+{id:6,n:"Sıcak Beyaz Gecesi",r:"Okşan Okşar · Gece Tasarımcısı",c:"Sahne",h:["#7a2a46","#12080d"],b:"Işığı bir malzeme gibi eğirir. “Biraz daha sıcak beyaz” onun tek tutkusu ve tek tehdidi.",l:"Loş ortamlarda gözlük takmaya devam eder, çünkü bir kere takmış ve vazgeçememiş.",s:["43","Lamba","2700K","Favori","0","Neon"]}
+];
+const CATS=["Tümü","Gece Gezisi","VIP Akşam","Sahne"];
+const X=[
+["01","Lüks Akşam","Yemek, ışık ve yüksek tavanlı bir sohbet. Menüde yalnızca hayal var.","Profillere bak","#profiller"],
+["02","Gece Gezisi","Şehrin ışıkları altında, rotası tamamen uydurma bir yürüyüş.","Rehberlere bak","#profiller"],
+["03","VIP Atmosferi","Kadife ip, ince müzik ve ciddi bir bakış. Girişte sadece hayal kurulur.","Üyelikleri gör","#vip"]
+];
+const V=[
+["Silver","Giriş kademesi",["Sahte karşılama kartı","Hayali rozet","Kurgusal bülten"],"Silver"],
+["Gold","En çok tercih edilen",["Hayali öncelikli giriş","Altın yaldızlı sahte kart","Kurgusal özel köşe"],"Gold"],
+["Diamond","Tamamen kurgusal zirve",["Hayali kişisel koordinatör","Görünmez VIP salon","Sonsuz sahte ayrıcalık"],"Diamond"]
+];
+const T=[
+["Bu site beni hiçbir yere götürmedi, ama çok şık götürdü.","Ahmet K.","Kurgusal müşteri"],
+["Yıldız verdim, sonra hangi yıldız olduğunu unuttum.","Gamze T.","Uydurma yorumcu"],
+["Gerçek hayatta bulamadığım tek şey: tutarlı bir tasarım sistemi.","Orhan B.","Hayali kullanıcı"]
+];
+const ROT=["Gecenin ritmini keşfet.","Sıradan gecelere veda et.","Şehrin en özel deneyimleri burada.","Gece senin, hikâye senin.","Unutulmaz anlar, ayrıcalıklı deneyimler."];
+
+/* helpers */
+function av(p){const[a,b]=p.h,i="OO";
+return `<svg viewBox="0 0 400 440" role="img" aria-label="Okşan Okşar temsili illüstrasyonu (kurgusal karakter)"><defs><linearGradient id="g${p.id}" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient><radialGradient id="r${p.id}" cx=".5" cy=".3" r=".6"><stop offset="0" stop-color="#f0dcab" stop-opacity=".35"/><stop offset="1" stop-color="#f0dcab" stop-opacity="0"/></radialGradient></defs><rect width="400" height="440" fill="url(#g${p.id})"/><rect width="400" height="440" fill="url(#r${p.id})"/><circle cx="200" cy="170" r="62" fill="#0a0a0b" opacity=".55" stroke="#d8b878" stroke-opacity=".5"/><path d="M70 440c0-90 55-150 130-150s130 60 130 150z" fill="#0a0a0b" opacity=".55" stroke="#d8b878" stroke-opacity=".4"/><text x="200" y="185" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#f0dcab">${i}</text></svg>`}
+let toastT;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),3200)}
+let lastFocus;
+function openM(html){lastFocus=document.activeElement;$("#modal").innerHTML=`<button class="x" aria-label="Kapat">×</button>`+html;$("#ov").classList.add("show");$(".x").focus();$(".x").onclick=closeM;document.body.style.overflow="hidden"}
+function closeM(){$("#ov").classList.remove("show");document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+$("#ov").addEventListener("click",e=>{if(e.target.id==="ov")closeM()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeM();closeMenu()}});
+
+/* profiles */
+let cat="Tümü";
+function render(){
+ const q=$("#q").value.trim().toLocaleLowerCase("tr");
+ const L=P.filter(p=>(cat==="Tümü"||p.c===cat)&&(!q||(p.n+p.r+p.b+p.l+p.c).toLocaleLowerCase("tr").includes(q)));
+ $("#grid").innerHTML=L.length?L.map(p=>`<button class="card" data-id="${p.id}" aria-label="${p.n} dosyasını aç"><div class="av">${av(p)}<span class="badge">${p.c}</span><span class="ai">Temsili AI görseli</span></div><div class="cb"><h3>${p.n}</h3><div class="role">${p.r}</div><p>${p.b}</p></div></button>`).join(""):`<div class="empty">Aramana uygun kurgusal profil bulunamadı. Belki de gece henüz başlamadı.</div>`;
+}
+$("#chips").innerHTML=CATS.map(c=>`<button class="chip" aria-pressed="${c==="Tümü"}">${c}</button>`).join("");
+$("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.textContent;$$(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+$("#q").addEventListener("input",render);
+$("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const p=P.find(x=>x.id==c.dataset.id);
+ openM(`<div class="av">${av(p)}</div><div class="mb"><h3 id="mt">${p.n}</h3><div class="role">${p.r} · ${p.c}</div><p>${p.l}</p><div class="stats">${[0,2,4].map(i=>`<div><b>${p.s[i]}</b><span>${p.s[i+1]}</span></div>`).join("")}</div><button class="btn gold" id="fake">Hayali Selam Gönder</button> <p style="font-size:.76rem;color:#7c766a;margin:14px 0 0">Kurgusal karakter ve kurgusal bir dosya. Gerçek bir kişi veya hizmet yoktur.</p></div>`);
+ $("#fake").onclick=()=>{closeM();toast(`Okşan Okşar hayal dünyasında seni selamladı. Gerçek bir işlem yapılmadı.`)}});
+render();
+
+/* experiences / vip / testimonials */
+$("#xgrid").innerHTML=X.map(x=>`<article class="xc rv"><div class="n">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><a href="${x[4]}">${x[3]} →</a></article>`).join("");
+$("#vip").innerHTML=V.map((v,i)=>`<article class="vc rv ${["","gold","dia"][i]}"><div class="eyebrow">${v[1]}</div><h3>${v[0]}</h3><div class="pr">Ücretsiz (çünkü gerçek değil)</div><ul>${v[2].map(f=>`<li>${f}</li>`).join("")}</ul><button class="btn ${i==1?"gold":"ghost"}" data-tier="${v[3]}">${v[0]} Kartını İncele</button></article>`).join("");
+$("#vip").addEventListener("click",e=>{const b=e.target.closest("[data-tier]");if(!b)return;const t=b.dataset.tier;
+ openM(`<div class="mb" style="padding-top:56px"><div class="eyebrow">Sahte üyelik</div><h3 id="mt">${t} Üyelik Kartı</h3><p>Bu bir parodidir. Kart yalnızca bu pencerede var olur; ödeme alınmaz, bilgi istenmez.</p><div style="height:150px;border-radius:16px;border:1px solid var(--gold);background:linear-gradient(135deg,#3b0f1c,#0a0a0b 60%);display:flex;align-items:flex-end;padding:18px;margin:6px 0 22px;font-family:Georgia,serif;letter-spacing:.25em;color:var(--gold2)">OKŞAN OKŞAR · ${t.toUpperCase()}</div><button class="btn gold" id="join">Hayali Üyeliği Aktifleştir</button></div>`);
+ $("#join").onclick=()=>{closeM();toast(`${t} üyeliğin hayal dünyasında aktif. Gerçekte hiçbir şey değişmedi.`)}});
+$("#tgrid").innerHTML=T.map(t=>`<figure class="tc rv" style="margin:0"><q>${t[0]}</q><small>${t[1]}</small><em>${t[2]}</em></figure>`).join("");
+
+/* contact */
+$("#cform").addEventListener("submit",e=>{e.preventDefault();e.target.reset();toast("Mesajın hiçbir yere gitmedi. Bu bir parodi, hatırlatma.")});
+
+/* menu */
+const bg=$("#burger");function closeMenu(){$("#links").classList.remove("open");bg.setAttribute("aria-expanded","false");bg.setAttribute("aria-label","Menüyü aç")}
+bg.onclick=()=>{const o=$("#links").classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Menüyü kapat":"Menüyü aç")};
+$$("#links a").forEach(a=>a.addEventListener("click",closeMenu));
+
+/* scroll spy + reveal */
+const secs=["ana","profiller","deneyimler","hakkimizda","iletisim"].map(id=>$("#"+id));
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$("#links a.l").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+secs.forEach(s=>spy.observe(s));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+$$(".rv").forEach(el=>io.observe(el));
+
+/* hero ambience */
+$("#bokeh").innerHTML=Array.from({length:14},(_,i)=>{const s=14+Math.random()*50;return `<i style="left:${Math.random()*100}%;top:${10+Math.random()*60}%;width:${s}px;height:${s}px;background:${i%3?"rgba(216,184,120,.22)":"rgba(143,29,56,.4)"};animation-delay:${-Math.random()*9}s;animation-duration:${7+Math.random()*7}s"></i>`}).join("");
+$("#win").innerHTML=Array.from({length:60},()=>`<rect x="${Math.floor(Math.random()*1180)}" y="${60+Math.floor(Math.random()*230)}" width="4" height="6" opacity="${Math.random().toFixed(2)}"/>`).join("");
+let ri=0;const rot=$("#rot");rot.textContent=ROT[0];
+setInterval(()=>{rot.style.opacity=0;setTimeout(()=>{ri=(ri+1)%ROT.length;rot.textContent=ROT[ri];rot.style.opacity=1},500)},4200);
+</script>
+</body>
+</html>
